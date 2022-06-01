@@ -10,12 +10,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class Product
  * @package App\Models
  *
- * @property string  $name
- * @property string  $description
- * @property string  $price
- * @property boolean $active
- * @property int     $category_id
- * @property int     $quantity
+ * @property int      $id
+ * @property string   $name
+ * @property string   $description
+ * @property string   $price
+ * @property boolean  $active
+ * @property int      $category_id
+ * @property int      $quantity
+ *
+ * @property Category $category
  */
 class Product extends Model
 {
@@ -89,5 +92,13 @@ class Product extends Model
     public function getQuantity(): int
     {
         return $this->quantity;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 }

@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('latitude');
             $table->string('longitude');
-            $table->enum('status', ['pending', 'canceled', 'delivered']);
+            $table->enum('status', ['pending', 'canceled', 'delivered'])->default('pending');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

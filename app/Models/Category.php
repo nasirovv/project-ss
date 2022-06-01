@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * Class Category
  * @package App\Models
  *
+ * @property int     $id
  * @property string  $name
  * @property boolean $active
  */
@@ -47,9 +48,17 @@ class Category extends Model
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function getIsActive(): bool
     {
         return $this->active;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
 }

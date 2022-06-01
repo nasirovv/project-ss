@@ -10,9 +10,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class OrderItem
  * @package App\Models
  *
- * @property int $product_id
- * @property int $order_id
- * @property int $quantity
+ * @property int     $product_id
+ * @property int     $order_id
+ * @property int     $quantity
+ *
+ * @property Product $product
  */
 class OrderItem extends Model
 {
@@ -35,7 +37,16 @@ class OrderItem extends Model
         return $this->belongsTo(Order::class, 'order_id', 'id');
     }
 
+    /**
+     * @return BelongsTo
+     */
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
+
     // Getters
+
     /**
      * @return int
      */

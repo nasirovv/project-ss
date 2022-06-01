@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,11 +11,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * Class Order
  * @package App\Models
  *
+ * @property int    $id
  * @property int    $user_id
  * @property string $address
  * @property string $longitude
  * @property string $latitude
  * @property string $status
+ *
+ * @property Collection $orderItems
  */
 class Order extends Model
 {
@@ -79,5 +83,13 @@ class Order extends Model
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 }

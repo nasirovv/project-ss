@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class OrderItemSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,12 @@ class OrderItemSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('order_items')->insert(
+        DB::table('users')->insert(
             [
-                'id'         => 1,
-                'product_id' => 1,
-                'order_id'   => 1,
-                'quantity'   => 22,
+                'id'       => 1,
+                'name'     => 'Mirfayz',
+                'email'    => '12312@dsa.com',
+                'password' => bcrypt('123123'),
             ]
         );
     }
